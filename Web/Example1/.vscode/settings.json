@@ -1,0 +1,5 @@
+{
+    "cmake.configureOnOpen": false
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active"
+}

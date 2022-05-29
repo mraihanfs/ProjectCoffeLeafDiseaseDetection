@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Aplikasi Pendeteksi Penyaki Kopi</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" />
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+        <img src="{{ url_for('static', filename='img/logo-unsika.png') }}" alt="logo-unsika" width="50px" />
+        <div class="container px-5">
+            <a class="navbar-brand" href="#">Pendeteksi Penyakit Kopi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Penyakit</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-target="#about-us"
+                            data-bs-toggle="modal">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-image py-5" style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('static/img/raw-coffee-beans-on-branch.jpg') center;
+            background-size: cover;
+        ">
+        <div class="container px-2">
+            <div class="row">
+                <div class="col">
+                    <div class="text-justify">
+                        <h1 class="display-10 fw-bolder text-light">
+                            Hasil Prediksi
+                        </h1>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="card bg-dark my-5 text-center" style="width:64rem;">
+            <div class="card-body">
+                <img src="{{ url_for('static', filename='temp/'+imgName) }}" alt="Foto Daun Kopi" class="card-img" style="width: 250px;">
+                {% if flag==True %}
+                <p class="card-text">Hasil dari prediksi tersebut adalah tumbuhan ini sakit </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="/">Deteksi Ulang</a>
+                <a class="btn btn-secondary" href="/learnMore">Penyakit Coffe-Rust</a>
+            </div>
+                {% else %}
+                <p class="card-text">Hasil dari prediksi tersebut adalah tumbuhan ini sehat </p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="/">Deteksi Ulang</a>
+            </div>
+                {% endif %}
+        </div>
+    </div>
+
+     <!-- Footer-->
+     <footer class="py-5 bg-dark footer bottom">
+        <div class="container px-5">
+            <p class="m-0 text-center text-white">Copyright &copy; ML-007 Team</p>
+        </div>
+    </footer>
+
+    <div id="about-us" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark bg-gradient">
+                <div class="modal-header">
+                    <h4 class="modal-title text-light">Tentang Kami</h4>
+                    <button class="close" type="button" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="card clean-card text-center">
+                                <img class="card-img-top w-100 d-block" src="static/img/foto-MuhammadRaihan.jpeg" />
+                                <div class="card-body info">
+                                    <h4 class="card-title">Muhammad Raihan Fais Sya'bani</h4>
+                                    <p class="card-text">Manusia yang pasti</p>
+                                    <i class="fab fa-github-square"><a href="http://github.com/mraihanfs"
+                                            target="_blank" class="text-dark">
+                                            <p class="card-text">mraihanfs</p>
+                                        </a></i>
+                                    &nbsp;
+                                    <i class="fab fa-instagram-square"><a href="https://www.instagram.com/mraihanfs/"
+                                            target="_blank" class="text-dark">
+                                            <p class="card-text">mraihanfs</p>
+                                        </a></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card clean-card text-center">
+                                <img class="card-img-top w-100 d-block" src="static/img/pp.jpg" />
+                                <div class="card-body info">
+                                    <h4 class="card-title">Oki Nurul Abada</h4>
+                                    <p class="card-text">
+                                        Hanya Seorang Manusia yang sedang bernafas
+                                    </p>
+                                    <i class="fab fa-github-square"><a href="http://github.com/mraihanfs"
+                                            target="_blank" class="text-dark">
+                                            <p class="card-text">mraihanfs</p>
+                                        </a></i>
+                                    &nbsp;
+                                    <i class="fab fa-instagram-square"><a href="https://www.instagram.com/mraihanfs/"
+                                            target="_blank" class="text-dark">
+                                            <p class="card-text">mraihanfs</p>
+                                        </a></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
